@@ -66,5 +66,36 @@ ScrollReveal().reveal('.home-content h1, .about-img img',{origin:'left'});
 ScrollReveal().reveal('.home-content h3, .home-content p, .about-content',{origin:'right'});
    
 
+ const text = "Felicia";
+  const speed = 400; 
+  let i = 0;
+
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById("typewriter").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", typeWriter);
+
+  //  À propos
+const aboutText = "Je m'appelle Felicia VOLATAHINDRAZANA, j'ai 23 ans et je suis en bachelor développeuse web à HETIC. Les nouvelles technologies, les progrès technologiques et les différents langages de programmation constituent mes passions ! J'ai développé des compétences solides au cours de mes études et en autodidacte. Laissez-moi vous le démontrer !";
+
+let j = 0;
+const speed2 = 30; 
+
+function typeWriterAbout() {
+  if (j < aboutText.length) {
+    document.getElementById("about-typewriter").innerHTML += aboutText.charAt(j);
+    j++;
+    setTimeout(typeWriterAbout, speed2);
+  }
+}
 
 
+window.addEventListener("DOMContentLoaded", () => {
+  typeWriter(); 
+  typeWriterAbout(); 
+});
