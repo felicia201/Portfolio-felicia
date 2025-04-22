@@ -181,18 +181,18 @@
 <!----contact-->
 <section class="contact" id="contact">
     <h2 class="heading">Contacter<span>Moi!</span></h2>
-    <form method="POST" action="message.php">
-        <div class="input-box">
-            <input type="text" name="fullname" placeholder="Nom">
-            <input type="email" name="email" placeholder="adresse mail">
-        </div>
-        <div class="input-box">
-            <input type="text" name="phone" placeholder="Numero">
-            <input type="text" name="subject" placeholder="objet">
-        </div>
-        <textarea name="message" cols="30" rows="10" placeholder="votre message"></textarea>
-        <input type="submit" value="envoyer" class="Btn">
-    </form>
+    <form id="contact-form">
+  <div class="input-box">
+    <input type="text" name="fullname" placeholder="Nom" required>
+    <input type="email" name="email" placeholder="adresse mail" required>
+  </div>
+  <div class="input-box">
+    <input type="text" name="phone" placeholder="Numero">
+    <input type="text" name="subject" placeholder="objet" required>
+  </div>
+  <textarea name="message" cols="30" rows="10" placeholder="votre message" required></textarea>
+  <input type="submit" value="envoyer" class="Btn">
+</form>
     
 </section>
 
@@ -212,6 +212,7 @@
 
  <!-----main Js file----->
 <script src="script.js"></script>
+<script src="api/contact.js"></script>
 
 <!--fontAwesome--->
 <script src="https://kit.fontawesome.com/aa5f332820.js" crossorigin="anonymous"></script>
