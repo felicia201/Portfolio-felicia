@@ -1,38 +1,30 @@
-const nodemailer = require('nodemailer');
+const form = document.getElementById('contact-form');
 
-module.exports = async (req, res) => {
-  if (req.method !== 'POST') {
-    return res.status(405).send({ message: 'Méthode non autorisée' });
-  }
+form.addEventListener('submit', async (e) => {
+  e.preventDefault(); // Empêche le rechargement de la page
 
-  const { fullname, email, phone, subject, message } = req.body;
-
-  const transporter = nodemailer.createTransport({
-    service: 'gmail', 
-    auth: {
-      user: process.env.MAIL_USER,
-      pass: process.env.MAIL_PASS,
-    },
-  });
-
-  const mailOptions = {
-    from: email,
-    to: process.env.MAIL_TO,
-    subject: `[Contact Portfolio] ${subject}`,
-    text: `
-Nom: ${fullname}
-Email: ${email}
-Téléphone: ${phone}
-Message:
-${message}
-    `,
+  const formData = {
+    fullname: form.fullname.value,
+    email: form.email.value,
+    phone: form.phone.value,
+    subject: form.subject.value,
+    message: form.message.value
   };
 
   try {
-    await transporter.sendMail(mailOptions);
-    res.status(200).json({ message: 'Message envoyé avec succès !' });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Erreur lors de l’envoi du message.' });
+    const response = await fetch('http://localhost:3000/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    });
+
+    const result = await response.json();
+    alert(result.message); // Affiche "Message envoyé avec succès!" ou une erreur
+    form.reset(); // Réinitialise le formulaire après l'envoi
+  } catch (error) {
+    console.error('Erreur lors de l\'envoi du formulaire', error);
+    alert('Erreur lors de l\'envoi du message.');
   }
-};
+});
