@@ -1,30 +1,49 @@
-const form = document.getElementById('contact-form');
-
-form.addEventListener('submit', async (e) => {
-  e.preventDefault(); // Empêche le rechargement de la page
-
-  const formData = {
-    fullname: form.fullname.value,
-    email: form.email.value,
-    phone: form.phone.value,
-    subject: form.subject.value,
-    message: form.message.value
-  };
+app.post('/api/contact', async (req, res) => {
+  const { fullname, email, phone, subject, message } = req.body;
 
   try {
-    const response = await fetch('http://localhost:3000/api/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
+    // 1. Envoie du message à toi
+    await transporter.sendMail({
+      from: `"${fullname}" <${email}>`,
+      to: 'fvolatahindrazana@gmail.com',
+      subject: subject,
+      text: `
+Nom : ${fullname}
+Email : ${email}
+Téléphone : ${phone}
+Sujet : ${subject}
+
+Message :
+${message}
+      `
     });
 
-    const result = await response.json();
-    alert(result.message); // Affiche "Message envoyé avec succès!" ou une erreur
-    form.reset(); // Réinitialise le formulaire après l'envoi
+    // 2. Email de confirmation au visiteur
+    await transporter.sendMail({
+      from: `"LiciaDev Portfolio" <${process.env.EMAIL_USER}>`,
+      to: email,
+      subject: "Confirmation de réception de votre message",
+      text: `
+Bonjour ${fullname},
+
+Merci de m'avoir contactée via mon portfolio. Voici une copie de votre message :
+
+Sujet : ${subject}
+Téléphone : ${phone}
+Message :
+${message}
+
+Je vous répondrai dès que possible.
+
+Cordialement,  
+Felicia Volatahindrazana
+      `
+    });
+
+    res.json({ message: 'Message envoyé avec succès ! Une copie vous a été envoyée.' });
+
   } catch (error) {
-    console.error('Erreur lors de l\'envoi du formulaire', error);
-    alert('Erreur lors de l\'envoi du message.');
+    console.error(error);
+    res.status(500).json({ message: "Erreur lors de l'envoi du message." });
   }
 });

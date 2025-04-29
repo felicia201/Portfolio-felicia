@@ -115,3 +115,36 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   const result = await res.json();
   alert(result.message);
 });
+
+// FORMULAIRE DE CONTACT
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch('http://localhost:3000/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          alert(result.message);
+          contactForm.reset();
+        } else {
+          alert("Erreur : " + result.message);
+        }
+      } catch (error) {
+        console.error('Erreur réseau :', error);
+        alert("Une erreur est survenue. Merci de réessayer plus tard.");
+      }
+    });
+  }
