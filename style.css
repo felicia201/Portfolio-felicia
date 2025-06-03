@@ -367,6 +367,13 @@ span{
   border-bottom: .6rem solid var(--main-color);
 
 }
+.project-box {
+  min-height: 460px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .project-box i{
   font-size: 7rem;
   color: var(--main-color);

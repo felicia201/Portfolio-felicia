@@ -81,7 +81,7 @@ ScrollReveal().reveal('.home-content h3, .home-content p, .about-content',{origi
   window.addEventListener("DOMContentLoaded", typeWriter);
 
   //  À propos
-const aboutText = "Je m'appelle Felicia VOLATAHINDRAZANA, j'ai 23 ans et je suis en bachelor développeuse web à HETIC. Les nouvelles technologies, les progrès technologiques et les différents langages de programmation constituent mes passions ! J'ai développé des compétences solides au cours de mes études et en autodidacte. Laissez-moi vous le démontrer !";
+const aboutText = "Je suis Felicia, développeuse passionnée par le web et le mobile. Actuellement étudiante en 3ème année de développement d'application, je propose des services freelance pour créer des sites web, applications mobiles, design UI/UX et automatisation de tâches. Si vous avez un projet digital, je peux le réaliser !";
 
 let j = 0;
 const speed2 = 30; 
@@ -116,7 +116,6 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   alert(result.message);
 });
 
-// FORMULAIRE DE CONTACT
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', async function (e) {

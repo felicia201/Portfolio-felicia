@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="iE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Felicia, développeuse web & mobile freelance. Création de sites, applications, design UI/UX et bots personnalisés.">
+
     <!--box icon-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
 
-    <!---css--->
     <link rel ="stylesheet" href ="style.css">
     <title>Portfolio</title>
 </head>
@@ -26,7 +27,7 @@
     <div class="bx bx-menu" id="menu-icon"></div>
 </header>
 
-<section class="home" id="home">
+<!-- <section class="home" id="home">
     <div class="home-content">
         
         <h3> Bonjour, Je suis</h3>
@@ -77,6 +78,73 @@
         </p>
         <a href="About.html" class="Btn">En savoir plus</a>
     </div>
+</section> -->
+<section class="home" id="home">
+    <div class="home-content">
+        <h3>Bonjour, je suis</h3>
+        <h1><span id="typewriter"></span></h1>
+        <h2>Je conçois des solutions digitales modernes pour les entrepreneurs et petites entreprises.</h2>
+        <div class="social-media">
+            <a href="https://facebook.com/felicia.rudegial"><i class='bx bxl-facebook-circle'></i></a>
+            <a href="https://instagram.com/vldrza?igshid=YmMyMTA2M2Y="><i class='bx bxl-instagram-alt'></i></a>
+            <a href="https://linkedin.com/in/felicia-volatahindrazana-78a8a5221"><i class='bx bxl-linkedin-square'></i></a>
+            <a href="https://github.com/felicia201/felicia201"><i class='bx bxl-github'></i></a>
+        </div>
+        <a href="img/felicia CV (6).pdf" class="Btn"> mon CV</a>
+    </div>
+    <div class="profession-container">
+        <div class="profession-box">
+            <div class="profession" style="--i:0;"><i class='bx bx-code-alt'></i><h3>Developpeuse web</h3></div>
+            <div class="profession" style="--i:1;"><i class='bx bx-palette'></i><h3>Designer</h3></div>
+            <div class="circle"></div>
+        </div>
+        <div class="overlay"></div>
+    </div>
+    <div class="home-img">
+        <img src="img/photo port.png" alt="Photo de profil">
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="about-img">
+        <img src="img/felicia.pht.jpg" alt="Felicia">
+    </div>
+    <div class="about-content">
+        <h2 class="heading">A <span>propos</span></h2>
+        <p> <p id="about-typewriter">
+        <span class = "read_more_text">
+        <a href="#contact" class="Btn">Travaillons ensemble</a>
+    </div>
+</section>
+
+<section class="services" id="services">
+  <h2 class="heading">Mes <span>services</span></h2>
+  <div class="project-container">
+    <div class="project-box">
+      <i class='bx bx-laptop'></i>
+      <h3>Création de sites web</h3>
+      <p>Je réalise des sites vitrines modernes, responsives et optimisés pour les indépendants, petites entreprises et porteurs de projet.</p>
+      <div style="text-align:center;"><a href="#contact" class="Btn" onclick="document.getElementsByName('subject')[0].value='Demande de devis - Service';">Demander un devis</a></div>
+    </div>
+    <div class="project-box">
+      <i class='bx bx-mobile'></i>
+      <h3>Applications mobiles</h3>
+      <p>Développement d'apps mobiles simples et efficaces pour Android avec React Native ou Flutter selon les besoins.</p>
+      <div style="text-align:center;"><a href="#contact" class="Btn">Demander un devis</a></div>
+    </div>
+    <div class="project-box">
+      <i class='bx bx-paint'></i>
+      <h3>Design UI/UX</h3>
+      <p>Création de maquettes et d'interfaces intuitives sur Figma, adaptées aux utilisateurs et respectant votre image de marque.</p>
+      <div style="text-align:center;"><a href="#contact" class="Btn">Demander un devis</a></div>
+    </div>
+    <div class="project-box">
+      <i class='bx bx-cog'></i>
+      <h3>Automatisation & bots</h3>
+      <p>Développement de scripts et bots (Discord, Python) pour automatiser des tâches et améliorer l'efficacité digitale.</p>
+      <div style="text-align:center;"><a href="#contact" class="Btn">Demander un devis</a></div>
+    </div>
+  </div>
 </section>
 
 <section class="project" id="project">
@@ -100,14 +168,20 @@
                  <a href="img/Projet Python combat d'insultes.docx" class="Btn">En savoir plus</a>
 
         </div>
-         <div class ="project-box">
-            <i class = 'bx bx-code-alt'></i>
-            <h3>Design</h3>
-            <p>Réalisation des Benchmark concurrentiel, analyse des produits, services,stratégies marketing pour améliorer notre positionnement concurrentiel.
-.Réalisation chartes graphiques professionnelles pour une cohérence visuelle de la marque
-.Réalisation de design system ...</p>
-                 <a href="https://www.figma.com/file/47UhId09azpgsQRwI46voi/GROUPE_2_DESIGN?type=design&node-id=243%3A766&mode=design&t=s8FbI5hQu1egJZPp-1" class="Btn">En savoir plus </a>
+          <div class="project-box">
+            <i class='bx bx-code-alt'></i>
+            <h3>Plateforme PlaceBeauty</h3>
+            <p>📖 Projet de stage réalisé pour une entreprise fictive dans le domaine de la beauté. 
+            
+            🔗 Objectif : Développer une plateforme où les utilisateurs peuvent réserver des services (coiffure, maquillage, etc.), acheter des produits, et trouver des professionnels.
 
+            🔧 Tech utilisées : React.js, Bootstrap, Figma, GitHub
+
+            🔌 Fonctionnalités : Maquettes Figma, réservation de services, marketplace, tableau de bord admin/modérateur, responsive design.
+
+            🌐 Lien : <a href="https://github.com/felicia201" target="_blank">Voir sur GitHub</a>
+            </p>
+            <div style="text-align:center;"><a href="https://github.com/felicia201" class="Btn">Voir le projet</a></div>
         </div>
 
     </div>
