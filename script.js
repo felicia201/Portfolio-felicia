@@ -147,3 +147,17 @@ document.getElementById('contact-form').addEventListener('submit', async functio
       }
     });
   }
+document.addEventListener('DOMContentLoaded', function() {
+        const links = document.querySelectorAll('a[href="#contact"]');
+        links.forEach(link => {
+          link.addEventListener('click', function() {
+            const parentBox = link.closest('.project-box');
+            if (parentBox) {
+              const title = parentBox.querySelector('h3')?.innerText;
+              if (title) {
+                document.getElementsByName('subject')[0].value = `Demande de devis - ${title}`;
+              }
+            }
+          });
+        });
+      })

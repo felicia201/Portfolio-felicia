@@ -408,7 +408,7 @@ span{
   overflow: hidden;
  }
  .portfolio-box img{
-  width: 100%;
+  width: 150%;
   transition: .5s ease;
 
  }
